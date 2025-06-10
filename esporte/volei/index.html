@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulse by Luiza - Vôlei</title>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2C123D, #3B1D4B, #D43D6D);
+            color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2C123D;
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-titulo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header img {
+            max-width: 900px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: normal;
+            color: #D43D6D;
+        }
+
+        .impulse-text {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .by-text {
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            font-size: 0.8em;
+        }
+
+        .luiza-text {
+            font-family: 'Parisienne', cursive;
+            font-style: normal;
+            color: #FFD1E6;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 1em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ffffff;
+            background: linear-gradient(135deg, #D43D6D, #B8336A);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(212, 61, 109, 0.3);
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #1B0A29, #2C123D);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(27, 10, 41, 0.4);
+            border: 2px solid #D43D6D;
+            scale: 1.05;
+        }
+
+        nav a.active {
+            background: linear-gradient(135deg, #1B0A29, #2C123D);
+            border: 2px solid #D43D6D;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.07);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+        }
+
+        h2 {
+            color: #D43D6D;
+            border-bottom: 2px solid #D43D6D;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .esporte-info {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .esporte-texto {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .esporte-imagem {
+            text-align: center;
+        }
+
+        .esporte-imagem img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .esporte-imagem img:hover {
+            transform: scale(1.05);
+        }
+
+        .links-externos {
+            margin-top: 20px;
+        }
+
+        .links-externos a {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #D43D6D, #B8336A);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .links-externos a:hover {
+            background: linear-gradient(135deg, #1B0A29, #2C123D);
+            transform: translateY(-2px);
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .produto-card {
+            background: linear-gradient(135deg, rgba(212, 61, 109, 0.15), rgba(255, 209, 230, 0.1));
+            border: 2px solid rgba(212, 61, 109, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .produto-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 209, 230, 0.1), transparent);
+            transform: rotate(-45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-10px);
+            border-color: #D43D6D;
+            box-shadow: 0 15px 40px rgba(212, 61, 109, 0.4);
+        }
+
+        .produto-card:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        .produto-imagem {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .produto-card:hover .produto-imagem img {
+            transform: scale(1.1);
+        }
+
+        .produto-nome {
+            color: #FFD1E6;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .produto-preco {
+            color: #D43D6D;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .produto-descricao {
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .produto-tamanhos {
+            margin-top: 15px;
+        }
+
+        .produto-tamanhos h4 {
+            color: #FFD1E6;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .tamanhos-lista {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tamanho {
+            background: rgba(212, 61, 109, 0.3);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            border: 1px solid rgba(212, 61, 109, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .tamanho:hover {
+            background: rgba(212, 61, 109, 0.6);
+            transform: scale(1.05);
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(-45deg);
+            }
+            50% {
+                transform: translateX(0%) translateY(0%) rotate(-45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(-45deg);
+            }
+        }
+
+        footer {
+            background-color: #1B0A29;
+            color: #D43D6D;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .logo-titulo {
+                gap: 10px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .page-title h1 {
+                font-size: 2.5em;
+            }
+
+            .esporte-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .produtos-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .produto-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-titulo">
+            <img src="../../imgs/logo-impulse.png" alt="Logo Impulse by Luiza">
+            <h1>
+                <span class="by-text">by</span>
+                <span class="luiza-text">Luiza Emanuelle</span>
+            </h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">🏠 Início</a></li>
+                <li><a href="../basquete/index.html">🏀 Basquete</a></li>
+                <li><a href="../handebol/index.html">🤾 Handebol</a></li>
+                <li><a href="index.html" class="active">🏐 Vôlei</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nossos Produtos de Vôlei</h2>
+            <div class="produtos-grid">
+                
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../../imgs/bola-volei-mikasa.png" alt="Bola de Vôlei Mikasa Oficial">
+                    </div>
+                    <h3 class="produto-nome">Bola de Vôlei Mikasa V200W Oficial</h3>
+                    <div class="produto-preco">R$ 349,90</div>
+                    <p class="produto-descricao">
+                        Bola oficial da FIVB, utilizada em competições internacionais e Jogos Olímpicos. Feita em couro sintético premium com tecnologia NEVA (Non-Stitched Volleyball Technology) que garante formato perfeito e durabilidade superior.
+                    </p>
+                    <div class="produto-tamanhos">
+                        <h4>Opções Disponíveis:</h4>
+                        <div class="tamanhos-lista">
+                            <span class="tamanho">Indoor Oficial</span>
+                            <span class="tamanho">Beach Volley</span>
+                            <span class="tamanho">Recreativa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../../imgs/tenis-volei-asics.png" alt="Tênis de Vôlei Mizuno Wave Lightning">
+                    </div>
+                    <h3 class="produto-nome">Asics Sky Elite FF MT 2</h3>
+                    <div class="produto-preco">R$ 599,90</div>
+                    <p class="produto-descricao">
+                        Tênis de vôlei profissional com tecnologia Wave Plate para máxima estabilidade e amortecimento. Solado borracha DynaMotion Groove oferece tração excepcional na quadra. Design leve e respirável.
+                    </p>
+                    <div class="produto-tamanhos">
+                        <h4>Tamanhos Disponíveis:</h4>
+                        <div class="tamanhos-lista">
+                            <span class="tamanho">37</span>
+                            <span class="tamanho">38</span>
+                            <span class="tamanho">39</span>
+                            <span class="tamanho">40</span>
+                            <span class="tamanho">41</span>
+                            <span class="tamanho">42</span>
+                            <span class="tamanho">43</span>
+                            <span class="tamanho">44</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../../imgs/uniforme-volei-brasil.png" alt="Uniforme de Vôlei Seleção Brasileira">
+                    </div>
+                    <h3 class="produto-nome">Regata Jogo 3 Vôlei Brasil Oficial Feminina Volt</h3>
+                    <div class="produto-preco">R$ 159,90</div>
+                    <p class="produto-descricao">
+                        Regata oficial da Seleção Brasileira de Vôlei. Tecido com tecnologia Dry-Fit que absorve o suor e mantém o corpo seco. Cores tradicionais amarelo e azul.
+                    </p>
+                    <div class="produto-tamanhos">
+                        <h4>Tamanhos Disponíveis:</h4>
+                        <div class="tamanhos-lista">
+                            <span class="tamanho">P</span>
+                            <span class="tamanho">M</span>
+                            <span class="tamanho">G</span>
+                            <span class="tamanho">GG</span>
+                            <span class="tamanho">XG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Sobre o Vôlei</h2>
+            <div class="esporte-info">
+                <div class="esporte-texto">
+                    <p>O vôlei foi criado em 1895 pelo americano William George Morgan, em Holyoke, Massachusetts (EUA). Inicialmente chamado de "Mintonette", o esporte foi desenvolvido como uma alternativa ao basquete, sendo menos agressivo e adequado para pessoas mais velhas.</p>
+                    
+                    <p>O esporte evoluiu rapidamente e hoje é praticado em mais de 220 países. A FIVB (Federação Internacional de Voleibol) governa o esporte mundialmente, organizando competições como a Liga das Nações, Copa do Mundo e Campeonatos Mundiais.</p>
+                    
+                    <p>No Brasil, o vôlei é extremamente popular e bem-sucedido. A seleção brasileira é uma das mais vitoriosas da história, com múltiplas medalhas olímpicas. Jogadores como Giba, Bernardinho, Sheilla e Tandara se tornaram ídolos nacionais.</p>
+                    
+                    <p>O vôlei de praia, modalidade derivada do vôlei tradicional, também ganhou destaque mundial, especialmente no Brasil, onde duplas como Emanuel/Ricardo e Alison/Bruno Schmidt conquistaram títulos olímpicos.</p>
+                </div>
+                <div class="esporte-imagem">
+                    <img src="../../imgs/volei-historia.png" alt="História do Vôlei">
+                </div>
+            </div>
+            
+            <div class="links-externos">
+                <h3>Saiba mais sobre o Vôlei:</h3>
+                <a href="https://www.fivb.com/" target="_blank">🌐 FIVB - Federação Internacional</a>
+                <a href="https://www.cbv.com.br/" target="_blank">🇧🇷 Confederação Brasileira de Voleibol</a>
+                <a href="https://www.volleyball.world/" target="_blank">🏐 Volleyball World</a>
+                <a href="https://pt.wikipedia.org/wiki/Voleibol" target="_blank">📖 História Completa</a>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div>
+            <p><strong>Proprietários:</strong></p>
+            <p>Luiza Emanuelle Soares Dias</p>
+            <p>Theo Dias</p>
+            <p>Lots of Cats & Co.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

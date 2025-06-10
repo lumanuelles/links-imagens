@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulse by Luiza - Basquete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2C123D, #3B1D4B, #D43D6D);
+            color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2C123D;
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-titulo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header img {
+            max-width: 900px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: normal;
+            color: #D43D6D;
+        }
+
+        .impulse-text {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .by-text {
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+            font-size: 0.8em;
+        }
+
+        .luiza-text {
+            font-family: 'Parisienne', cursive;
+            font-style: normal;
+            color: #FFD1E6;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 1em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ffffff;
+            background: linear-gradient(135deg, #D43D6D, #B8336A);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(212, 61, 109, 0.3);
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #1B0A29, #2C123D);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(27, 10, 41, 0.4);
+            border: 2px solid #D43D6D;
+            scale: 1.05;
+        }
+
+        nav a.active {
+            background: linear-gradient(135deg, #1B0A29, #2C123D);
+            border: 2px solid #D43D6D;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.07);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+        }
+
+        h2 {
+            color: #D43D6D;
+            border-bottom: 2px solid #D43D6D;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .esporte-info {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .esporte-texto {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .esporte-imagem {
+            text-align: center;
+        }
+
+        .esporte-imagem img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .esporte-imagem img:hover {
+            transform: scale(1.05);
+        }
+
+        .links-externos {
+            margin-top: 20px;
+        }
+
+        .links-externos a {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #D43D6D, #B8336A);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .links-externos a:hover {
+            background: linear-gradient(135deg, #1B0A29, #2C123D);
+            transform: translateY(-2px);
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .produto-card {
+            background: linear-gradient(135deg, rgba(212, 61, 109, 0.15), rgba(255, 209, 230, 0.1));
+            border: 2px solid rgba(212, 61, 109, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .produto-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 209, 230, 0.1), transparent);
+            transform: rotate(-45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-10px);
+            border-color: #D43D6D;
+            box-shadow: 0 15px 40px rgba(212, 61, 109, 0.4);
+        }
+
+        .produto-card:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        .produto-imagem {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .produto-card:hover .produto-imagem img {
+            transform: scale(1.1);
+        }
+
+        .produto-nome {
+            color: #FFD1E6;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .produto-preco {
+            color: #D43D6D;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .produto-descricao {
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .produto-tamanhos {
+            margin-top: 15px;
+        }
+
+        .produto-tamanhos h4 {
+            color: #FFD1E6;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .tamanhos-lista {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tamanho {
+            background: rgba(212, 61, 109, 0.3);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            border: 1px solid rgba(212, 61, 109, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .tamanho:hover {
+            background: rgba(212, 61, 109, 0.6);
+            transform: scale(1.05);
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(-45deg);
+            }
+            50% {
+                transform: translateX(0%) translateY(0%) rotate(-45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(-45deg);
+            }
+        }
+
+        footer {
+            background-color: #1B0A29;
+            color: #D43D6D;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .logo-titulo {
+                gap: 10px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .page-title h1 {
+                font-size: 2.5em;
+            }
+
+            .esporte-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .produtos-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .produto-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-titulo">
+            <img src="../../imgs/logo-impulse.png" alt="Logo Impulse by Luiza">
+            <h1>
+                <span class="by-text">by</span>
+                <span class="luiza-text">Luiza Emanuelle</span>
+            </h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">🏠 Início</a></li>
+                <li><a href="index.html" class="active">🏀 Basquete</a></li>
+                <li><a href="../handebol/index.html">🤾 Handebol</a></li>
+                <li><a href="../volei/index.html">🏐 Vôlei</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nossos Produtos de Basquete</h2>
+            <div class="produtos-grid">
+                
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../../imgs/bola-basquete-spalding.png" alt="Bola de Basquete Spalding NBA">
+                    </div>
+                    <h3 class="produto-nome">Bola de Basquete Spalding NBA Oficial</h3>
+                    <div class="produto-preco">R$ 299,90</div>
+                    <p class="produto-descricao">
+                        Bola oficial da NBA, feita em couro sintético de alta qualidade. Possui excelente aderência e durabilidade, ideal para jogos profissionais e treinos intensos. Aprovada pela FIBA.
+                    </p>
+                    <div class="produto-tamanhos">
+                        <h4>Tamanhos Disponíveis:</h4>
+                        <div class="tamanhos-lista">
+                            <span class="tamanho">Tamanho 7 (Oficial)</span>
+                            <span class="tamanho">Tamanho 6 (Feminino)</span>
+                            <span class="tamanho">Tamanho 5 (Juvenil)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../../imgs/tenis-basquete-nike.png" alt="Tênis de Basquete Nike Air Jordan">
+                    </div>
+                    <h3 class="produto-nome">Tênis Nike Air Jordan Retro</h3>
+                    <div class="produto-preco">R$ 899,90</div>
+                    <p class="produto-descricao">
+                        Tênis de basquete inspirado no lendário Michael Jordan. Tecnologia Air para máximo conforto e amortecimento. Solado antiderrapante e design icônico que combina performance e estilo.
+                    </p>
+                    <div class="produto-tamanhos">
+                        <h4>Tamanhos Disponíveis:</h4>
+                        <div class="tamanhos-lista">
+                            <span class="tamanho">38</span>
+                            <span class="tamanho">39</span>
+                            <span class="tamanho">40</span>
+                            <span class="tamanho">41</span>
+                            <span class="tamanho">42</span>
+                            <span class="tamanho">43</span>
+                            <span class="tamanho">44</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="produto-card">
+                    <div class="produto-imagem">
+                        <img src="../../imgs/uniforme-basquete-lakers.png" alt="Uniforme de Basquete Lakers">
+                    </div>
+                    <h3 class="produto-nome">Uniforme Completo Lakers</h3>
+                    <div class="produto-preco">R$ 189,90</div>
+                    <p class="produto-descricao">
+                        Conjunto completo inspirado no Los Angeles Lakers, incluindo camiseta e bermuda. Tecido respirável com tecnologia Dri-FIT, ideal para treinos e jogos. Cores oficiais roxo e dourado.
+                    </p>
+                    <div class="produto-tamanhos">
+                        <h4>Tamanhos Disponíveis:</h4>
+                        <div class="tamanhos-lista">
+                            <span class="tamanho">P</span>
+                            <span class="tamanho">M</span>
+                            <span class="tamanho">G</span>
+                            <span class="tamanho">GG</span>
+                            <span class="tamanho">XG</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Sobre o Basquete</h2>
+            <div class="esporte-info">
+                <div class="esporte-texto">
+                    <p>O basquete é um esporte coletivo inventado em 1891 pelo professor canadense James Naismith, em Springfield, Massachusetts (EUA). O jogo foi criado com o objetivo de manter os alunos ativos durante o inverno rigoroso.</p>
+                    
+                    <p>O esporte ganhou popularidade mundial e hoje é praticado em mais de 200 países. A NBA (National Basketball Association) é considerada a principal liga profissional do mundo, revelando grandes estrelas como Michael Jordan, LeBron James, Kobe Bryant e Stephen Curry.</p>
+                    
+                    <p>No Brasil, o basquete tem tradição forte, com destaque para jogadores como Oscar Schmidt, considerado um dos maiores cestinhas da história mundial, e Hortência, lenda do basquete feminino brasileiro.</p>
+                    
+                    <p>Os principais campeonatos incluem a NBA, EuroLeague, Copa do Mundo FIBA e os Jogos Olímpicos, onde o esporte é uma das modalidades mais populares.</p>
+                </div>
+                <div class="esporte-imagem">
+                    <img src="../../imgs/basquete-historia.png" alt="História do Basquete">
+                </div>
+            </div>
+            
+            <div class="links-externos">
+                <h3>Saiba mais sobre o Basquete:</h3>
+                <a href="https://www.fiba.basketball/" target="_blank">🌐 FIBA - Federação Internacional</a>
+                <a href="https://www.nba.com/" target="_blank">🏀 NBA Oficial</a>
+                <a href="https://cbb.com.br/" target="_blank">🇧🇷 Confederação Brasileira de Basketball</a>
+                <a href="https://pt.wikipedia.org/wiki/Basquetebol" target="_blank">📖 História Completa</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <p><strong>Proprietários:</strong></p>
+            <p>Luiza Emanuelle Soares Dias</p>
+            <p>Theo Dias</p>
+            <p>Lots of Cats & Co.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
